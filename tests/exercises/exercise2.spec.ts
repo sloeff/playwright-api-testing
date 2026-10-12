@@ -9,8 +9,5 @@ import { test, expect } from "@playwright/test";
 
 test("Get booking IDs", async ({ request }) => {
   // Get all bookings and store them in a constant for later use
-
-  // Parse the response to a JSON we can use to verify attributes
-  // The command is not complete. hint: https://playwright.dev/docs/api/class-apiresponse#api-response-json
-  const responseBody = await response;
+  // Parse the response to a JSON we can use to verify attributes hint: https://playwright.dev/docs/api/class-apiresponse#api-response-json
 });

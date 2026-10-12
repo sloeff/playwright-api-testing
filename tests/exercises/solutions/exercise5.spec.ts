@@ -9,7 +9,7 @@ import { CreateBooking, defaultBooking } from "../../factory/BookingFactory";
 
 test("Create POST with a factory Class", async ({ request }) => {
   // Create a new booking via the CreateBooking function, the body can be altered to your wishes
-  const createBooking = await CreateBooking(request, { totalprice: 200 });
+  const createBooking = await CreateBooking({ totalprice: 200 });
   // Verify that a bookingId is returned
   expect(createBooking.bookingid).toBeDefined();
   // Store the bookingid to the bookingid constant

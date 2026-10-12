@@ -1,4 +1,4 @@
-import { APIRequestContext } from "@playwright/test";
+import { request as playwrightRequest } from "@playwright/test";
 
 interface Booking {
   firstname: string;
@@ -28,10 +28,8 @@ export const defaultBooking: Booking = {
   additionalneeds: "Breakfast",
 };
 
-export async function CreateBooking(
-  request: APIRequestContext,
-  bookingData: Partial<Booking> = {}
-): Promise<BookingResponse> {
+export async function CreateBooking(bookingData: Partial<Booking> = {}): Promise<BookingResponse> {
+  const request = await playwrightRequest.newContext();
   // Combine the default booking with the data from the test.
   const requestBody: Booking = { ...defaultBooking, ...bookingData };
 
@@ -39,7 +37,7 @@ export async function CreateBooking(
     data: requestBody,
   });
 
-  const responseJson = bookingResponse.json();
+  const responseJson = await bookingResponse.json();
   // The parsed response is returned.
   return responseJson;
 }
