@@ -40,27 +40,27 @@ export class ProductBuilder {
     dimensions: { width: 1, height: 1, depth: 1 },
   };
 
-  withTitle(title: string): this {
+  withTitle(title: string): ProductBuilder {
     this.product.title = title;
     return this;
   }
 
-  withPrice(price: number): this {
+  withPrice(price: number): ProductBuilder {
     this.product.price = price;
     return this;
   }
 
-  withDimensions(width: number, height: number, depth: number): this {
+  withDimensions(width: number, height: number, depth: number): ProductBuilder {
     this.product.dimensions = { width, height, depth };
     return this;
   }
 
-  addTag(tag: string): this {
+  addTag(tag: string): ProductBuilder {
     this.product.tags.push(tag);
     return this;
   }
 
-  addReview(rating: number, comment: string, reviewerName: string): this {
+  addReview(rating: number, comment: string, reviewerName: string): ProductBuilder {
     this.product.reviews.push({ rating, comment, reviewerName });
     return this;
   }
